@@ -82,7 +82,15 @@ class Datacard():
                 else :
                     path = self.shapeMap['*'][proc][idx]
         else :
-            path = self.shapeMap[bin][proc][idx]
+            #print "Shape Map arriving: ", self.shapeMap 
+            #print "Requesting bin, proc, idx: ", bin, proc, idx  
+            tempProc = proc
+            if tempProc == 'HTB' :
+                tempProc = '*'
+            if tempProc == 'TBH' :
+                tempProc = '*'
+            path = self.shapeMap[bin][tempProc][idx]
+        print "Output path returned: ", path     
         return path
 
     def path_to_file(self, bin, proc) :
